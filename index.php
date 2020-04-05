@@ -2,9 +2,9 @@
 <?php
 
 //
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+// ini_set('display_errors', 1);
+// ini_set('display_startup_errors', 1);
+// error_reporting(E_ALL);
 
 $servername = "localhost";
 $username = "root";
@@ -27,6 +27,15 @@ echo "Connection failed: " . $e->getMessage();
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-162752197-1"></script>
+  <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-162752197-1');
+  </script>
     <style="css" src="css/style.css"></style>
     <!-- Magnific Popup core CSS file -->
     <link rel="stylesheet" href="magnific-popup/magnific-popup.css">
