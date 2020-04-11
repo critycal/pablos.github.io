@@ -67,8 +67,16 @@ echo "Connection failed: " . $e->getMessage();
       background-size: cover;
   }
 
+#img-fluid {
+  object-fit: cover;
+  max-width: 32vw;
+  max-height: 32vw;
 
-  ellipse(100% 80% at 37% 19%)
+  overflow: hidden;
+  width: 32vw;
+  height: 32vw;
+}
+  /* ellipse(100% 80% at 37% 19%) */
   /* .square {
     width: 100%;
     padding-bottom: 100%;
@@ -90,17 +98,17 @@ echo "Connection failed: " . $e->getMessage();
     </div> -->
   </div>
   </div>
-    <div class="container-class" style="height:100%">
+    <div class="container-class" style="height:100vh">
       <div class="row">
-        <div class="col" display=width: 25%;>
+        <div class="col" style="width:25vw;">
 
         </div>
-        <div class="col">
-          <span style="display:flex; height:300px";>
-          </span>
+        <div class="col" style="width:50vw;">
+          <!-- <span style="display:flex; height:300px";>
+          </span> -->
           <img src="img/firma.png" style="height:200px"></img><br>
           <a href="#portfolio">GALERIA</a><br>
-          <a href="#contacto">CONTACTO</a>
+          <a href="https://www.instagram.com/pwalloschke/">CONTACTO</a>
           <span style="display:flex; height:400px";>
           </span>
         </div>
@@ -120,7 +128,7 @@ echo "Connection failed: " . $e->getMessage();
               <!-- portfolio section start -->
 
         </div>
-        <div class="col">
+        <div class="col" style="width:25vw;">
           <div>
       </div>
 
@@ -129,6 +137,9 @@ echo "Connection failed: " . $e->getMessage();
         <!-- <div class="popup-gallery">
         <a href="high-res/Alba.jpg" class="portfolio-item set-bg" data-setbg="high-res/Alba.jpg"></a>
       </div> -->
+
+<!-- Deprecated image gallery viewer -->
+
 
 
 <script>
@@ -153,61 +164,109 @@ echo "Connection failed: " . $e->getMessage();
                 });
 
 </script>
-<div class="d-flex bd-highlight">
-  <!-- <div class="popup-gallery">
-    	<a href="high-res/Alba.jpg" title="Alba"><img src="high-res/Alba.jpg" width="75" height="75"></a>
-  </div> -->
+
+<div class="container-flex inline-flex">
+  <div class="row">
+    <div class="col" style="width:33vw;">
         <?php
 
-                $sql = "SELECT * from `images_hd`";"
-                -- COLLATE utf8_general_ci";
-                $prepare = $conn->query($sql);
+        $array1 = array();
+        $array2 = array();
+        $array3 = array();
 
-foreach( $prepare as $row ) // using foreach  to display each element of array
+
+        $sql = "SELECT * from images_hd order by id desc";
+
+        $prepare = $conn->prepare($sql);
+        $preapr2 = $conn->query($sql);
+        $prepare->execute();
+        $array1 = $prepare->fetchAll(\PDO::FETCH_ASSOC);
+
+        // print_r($array1);
+
+        $sql2 = "SELECT ID as ID2 from images_hd WHERE ID_KEY %3 = 0 ORDER BY ID_KEY DESC;";
+        $prepare = $conn->prepare($sql2);
+        $prepare->execute();
+        $array2 = $prepare->fetchAll(\PDO::FETCH_ASSOC);
+        // print_r($array2);
+
+
+        $sql3 = "SELECT ID AS ID3 from images_hd WHERE ID_KEY %3 = 2 ORDER BY ID_KEY DESC;";
+        $prepare = $conn->prepare($sql3);
+        $prepare->execute();
+        $array3 = $prepare->fetchAll(\PDO::FETCH_ASSOC);
+        // print_r($array3);
+
+// $array = array_merge($array1, $array2, $array3);
+// $c = array_map(function ($array1, $array2) { return "$array1','$array2"; }, $array1, $array2);
+
+// var_dump($c);
+?>
+<div class="col">
+  <div class="popup-gallery">
+
+<?php
+foreach( $preapr2 as $row ) // using foreach  to display each element of array
             {
               ?>
-            <!-- </div>
 
-          <div class="container p-md-0 ">
-            <div class="row portfolios-area">
-              <div class="mix col-lg-6 col-md-6 web">
-                  <div class="pi-inner"></a>
-                    <h2>+ See Project</h2>
-                  </div>
-                </div> -->
+                  <a href="high-res/<?php echo $row['ID']?>" title="<?php echo $row['Name']; ?>"><img src="high-res/<?php echo $row['ID']?>" id="img-fluid"></a>
+              <?php
+          }
+
+?>
+</div>
+</div>
+
+      <!-- <div class="col" style="width:33vw;"> -->
 <!--
-            <div class="container p-md-0 ">
+<?php
 
-              <div class="popup-gallery">
-               <div class="row">
-                <div class="col-sm"> -->
-                <!-- <div class="d-inline-flex p-2 bd-highlight"> -->
-                <div class="p-2 flex-fill bd-highlight">
+foreach( $prepare2 as $row ) // using foreach  to display each element of array
+            {
+              ?>
+
                   <div class="popup-gallery">
                   <a href="high-res/<?php echo $row['ID']?>" title="<?php echo $row['Name']; ?>"><img src="high-res/<?php echo $row['ID']?>" class="img-fluid"></a>
                 </div>
-                </div>
-              <!-- </div>
-            </div> -->
-
-
 
               <?php
-}
+          }
+
+
+
+
 ?>
-      </div>
+
   </div>
+  <div class="col" style="width:33vw;">
+
+<?php
+
+foreach( $prepare3 as $row ) // using foreach  to display each element of array
+        {
+          ?>
+
+              <div class="popup-gallery">
+              <a href="high-res/<?php echo $row['ID']?>" title="<?php echo $row['Name']; ?>"><img src="high-res/<?php echo $row['ID']?>" class="img-fluid"></a>
+            </div>
+
+          <?php
+      }
+
+
+
+
+?>
+
+</div> -->
+
+</div>
 </section>
 <a id="portfolio">
 
 </a>
 <!-- portfolio section end -->
-<!--====== Javascripts & Jquery ======-->
-<!-- <script src="js/jquery-2.1.4.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/mixitup.min.js"></script>
-<script src="js/magnific-popup.min.js"></script>
-<script src="js/main.js"></script> -->
 
             </div>
           </div>

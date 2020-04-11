@@ -11,9 +11,8 @@
     background-image: url(../high-res/Autorretratoserie4.jpg);
     background-repeat: no-repeat;
     background-position: center;
-    border: 2px dashed #333;
-    background-size: cover;
-    height: auto 100%
+    background-size: contain;
+    height: 25vh;
 }
 a {
   font-family: 'Open-Sans', sans-serif;
