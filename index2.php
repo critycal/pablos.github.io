@@ -3,17 +3,40 @@
 $imgs = "high-res";
 $files1 = scandir($imgs);
 
+print_r($files1);
 //
 // ini_set('display_errors', 1);
 // ini_set('display_startup_errors', 1);
 // error_reporting(E_ALL);
 
 
+foreach ($files1 as $row) {
+  ?>
+  <a href="high-res/<?php echo $row ?>" title="<?php echo $row ?>"><img src="high-res/<?php echo $row ?>" id="img-fluid"></a>
+<?php
+}
 
 
 
 
+
+
+$servername = "localhost";
+$username = "root";
+$password = "";
+
+try {
+$conn = new PDO("mysql:host=$servername;dbname=pablo", $username, $password);
+// set the PDO error mode to exception
+$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+}
+catch(PDOException $e)
+{
+echo "Connection failed: " . $e->getMessage();
+}
 ?>
+
+
 
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -79,7 +102,15 @@ $files1 = scandir($imgs);
   </style>
 
 <section>
+  <!-- Page Content -->
+  <!-- <div class="container">
+    <div class="card border-0 shadow my-5">
+      <div class="card-body p-5">
 
+        <div style="height: 700px"></div>
+
+      </div>
+    </div> -->
   </div>
   </div>
     <div class="container-class" style="height:100vh">
@@ -97,6 +128,19 @@ $files1 = scandir($imgs);
           </span>
         </div>
 
+      <!-- <div class="col">
+      </div>
+      <div class="row">
+        <div class="col">
+
+        </div>
+      </div>
+
+      <hr>
+            <!-- <div class="container-flex bg-primary" background-color:">
+              <div class="row"> -->
+
+              <!-- portfolio section start -->
 
         </div>
         <div class="col" style="width:25vw;">
@@ -105,6 +149,11 @@ $files1 = scandir($imgs);
 
 </section>
       <section class="portfolio-section">
+        <!-- <div class="popup-gallery">
+        <a href="high-res/Alba.jpg" class="portfolio-item set-bg" data-setbg="high-res/Alba.jpg"></a>
+      </div> -->
+
+<!-- Deprecated image gallery viewer -->
 
 
 
@@ -134,18 +183,52 @@ $files1 = scandir($imgs);
 <div class="container-flex inline-flex">
   <div class="row">
     <div class="col" style="width:33vw;">
-      <?php
-      foreach ($files1 as $row) {
-        ?>
-        <a href="high-res/<?php echo $row ?>" title="<?php echo $row ?>"><img src="high-res/<?php echo $row ?>" id="img-fluid"></a>
-      <?php
-      }
-      ?>
+        <?php
+
+        $array1 = array();
+        $array2 = array();
+        $array3 = array();
+
+
+        $sql = "SELECT * from images_hd order by id desc";
+
+        $prepare = $conn->prepare($sql);
+        $preapr2 = $conn->query($sql);
+        $prepare->execute();
+        $array1 = $prepare->fetchAll(\PDO::FETCH_ASSOC);
+
+        // print_r($array1);
+
+        $sql2 = "SELECT ID as ID2 from images_hd WHERE ID_KEY %3 = 0 ORDER BY ID_KEY DESC;";
+        $prepare = $conn->prepare($sql2);
+        $prepare->execute();
+        $array2 = $prepare->fetchAll(\PDO::FETCH_ASSOC);
+        // print_r($array2);
+
+
+        $sql3 = "SELECT ID AS ID3 from images_hd WHERE ID_KEY %3 = 2 ORDER BY ID_KEY DESC;";
+        $prepare = $conn->prepare($sql3);
+        $prepare->execute();
+        $array3 = $prepare->fetchAll(\PDO::FETCH_ASSOC);
+        // print_r($array3);
+
+// $array = array_merge($array1, $array2, $array3);
+// $c = array_map(function ($array1, $array2) { return "$array1','$array2"; }, $array1, $array2);
+
+// var_dump($c);
+?>
 <div class="col">
   <div class="popup-gallery">
 
 <?php
 
+foreach( $preapr2 as $row ) // using foreach  to display each element of array
+            {
+              ?>
+
+                  <a href="high-res/<?php echo $row['ID']?>" title="<?php echo $row['Name']; ?>"><img src="high-res/<?php echo $row['ID']?>" id="img-fluid"></a>
+              <?php
+          }
 
 
 
@@ -154,6 +237,37 @@ $files1 = scandir($imgs);
 </div>
 </div>
 
+      <!-- <div class="col" style="width:33vw;"> -->
+<!--
+<?php
+
+
+
+
+?>
+
+  </div>
+  <div class="col" style="width:33vw;">
+
+<?php
+
+foreach( $prepare3 as $row ) // using foreach  to display each element of array
+        {
+          ?>
+
+              <div class="popup-gallery">
+              <a href="high-res/<?php echo $row['ID']?>" title="<?php echo $row['Name']; ?>"><img src="high-res/<?php echo $row['ID']?>" class="img-fluid"></a>
+            </div>
+
+          <?php
+      }
+
+
+
+
+?>
+
+</div> -->
 
 </div>
 </section>
