@@ -1,12 +1,30 @@
 
 <?php
-$imgs = "high-res";
-$files1 = scandir($imgs);
+$files = "";
+$dir = "high-res";
+// $files1 = scandir($dir);
+// var_dump($files1);
 
-//
-// ini_set('display_errors', 1);
-// ini_set('display_startup_errors', 1);
-// error_reporting(E_ALL);
+
+function scan_dir($dir) {
+    $ignored = array('.', '..', '.svn', '.htaccess');
+
+    $files = array();
+    foreach (scandir($dir) as $file) {
+        if (in_array($file, $ignored)) continue;
+        $files[$file] = filemtime($dir . '/' . $file);
+    }
+
+    arsort($files);
+    $files = array_keys($files);
+
+    return ($files) ? $files : false;
+    var_dump($files);
+
+}
+// var_dump($files);
+$files = scan_dir($dir);
+
 
 
 
@@ -20,7 +38,16 @@ $files1 = scandir($imgs);
   <head>
     <meta charset="utf-8">
     <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-162752197-1"></script>
+    <!-- <script>document.cookie='resolution='+Math.max(screen.width,screen.height)+("devicePixelRatio" in window ? ","+devicePixelRatio : ",1")+'; path=/';</script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/picturefill/3.0.3/picturefill.min.js"></script>
+  <script>
+    // Picture element HTML5 shiv
+    document.createElement( "picture" );
+  </script>
+  <script src="picturefill.js" async></script>
+
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-162752197-1"></script>
   <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -40,16 +67,29 @@ $files1 = scandir($imgs);
 
 
 
+
+
       <!-- Stylesheets -->
       <link rel="stylesheet" href="css/bootstrap.min.css"/>
       <link rel="stylesheet" href="css/font-awesome.min.css"/>
       <link rel="stylesheet" href="css/magnific-popup.css"/>
       <link rel="stylesheet" href="css/style.css"/>
-      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;lang=en" />
+      <link href="https://fonts.googleapis.com/css2?family=Jost:wght@600&display=swap" rel="stylesheet">
+      <link href="//cdn.jsdelivr.net/npm/featherlight@1.7.14/release/featherlight.min.css" type="text/css" rel="stylesheet" />
+      <link href="//cdn.jsdelivr.net/npm/featherlight@1.7.14/release/featherlight.gallery.min.css" type="text/css" rel="stylesheet" />
+      <script src="//cdnjs.cloudflare.com/ajax/libs/detect_swipe/2.1.1/jquery.detect_swipe.min.js"></script>
 
   </head>
   <body>
+
   <style>
+  .cosas {
+    /* position the div in center */
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+  }
   #grid {
       display: inline-block;
       width: 200px;
@@ -68,6 +108,15 @@ $files1 = scandir($imgs);
   width: 32vw;
   height: 32vw;
 }
+body  .row {
+    margin-left: 0!important;
+    margin-right: 0!important;
+
+
+}
+body {
+  font-family: 'Jost', sans-serif;
+}
   /* ellipse(100% 80% at 37% 19%) */
   /* .square {
     width: 100%;
@@ -76,27 +125,65 @@ $files1 = scandir($imgs);
     background-position: center;
 } */
 
+img {
+    max-width: 100%;
+    height: auto;
+}
+.mfp-content {
+    width:500px;
+    height:400px;
+ }
+ .featherlight .featherlight-content .caption {
+    font-size: 90%;
+    color: #868e96;
+    display: block;
+    position: absolute;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, .9);
+    padding: 0 1rem;
+}
   </style>
+<script>
 
+  $(document).ready(function() {
+    $(".gallery").featherlightGallery({
+      gallery: {
+        fadeIn: 300,
+        fadeOut: 300
+      },
+      openSpeed: 300,
+      closeSpeed: 300
+    });
+  });
+
+  $.featherlightGallery.prototype.afterContent = function() {
+          /*var caption = this.$currentTarget.data('caption');*/
+      var caption = this.$currentTarget.parent().find($('.figure-caption')).html();
+      this.$instance.find(".caption").remove();
+      $('<span class="caption">').text(caption).appendTo(this.$instance.find('.featherlight-content'));
+  };
+
+</script>
 <section>
 
-  </div>
-  </div>
+
+
+<picture>
+  <!-- <source srcset="high-res/Alba.jpg" media -->
+
+</picture>
     <div class="container-class" style="height:100vh">
       <div class="row">
-        <div class="col" style="width:25vw;">
-
-        </div>
-        <div class="col" style="width:50vw;">
-          <!-- <span style="display:flex; height:300px";>
-          </span> -->
-          <img src="img/firma.png" style="height:200px"></img><br>
+        <div class="col">
+          <div class="cosas">
+            <img src="img/firma.png" style="height:200px"></img><br>
           <a href="#portfolio">GALERIA</a><br>
           <a href="https://www.instagram.com/pwalloschke/">CONTACTO</a>
-          <span style="display:flex; height:400px";>
-          </span>
         </div>
-
+      </div>
+    </div>
+  </div>
+    <hr>
 
         </div>
         <div class="col" style="width:25vw;">
@@ -107,62 +194,65 @@ $files1 = scandir($imgs);
       <section class="portfolio-section">
 
 
-
+<!--
 <script>
-                $(document).ready(function() {
-                	$('.popup-gallery').magnificPopup({
-                		delegate: 'a',
-                		type: 'image',
-                		tLoading: 'Loading image #%curr%...',
-                		mainClass: 'mfp-img-mobile',
-                		gallery: {
-                			enabled: true,
-                			navigateByImgClick: true,
-                			preload: [0,1] // Will preload 0 - before current, and 1 after the current image
-                		},
-                		image: {
-                			tError: '<a href="%url%">The image #%curr%</a> could not be loaded.',
-                			titleSrc: function(item) {
-                				return item.el.attr('title') + '<small>by Pablo Walloschke</small>';
-                			}
-                		}
-                	});
-                });
+$(document).ready(function() {
+$('body').css("height",$( window ).height());
+$('body').css("overflow","hidden");
+$('.popup-gallery').magnificPopup({
+delegate: 'a',
+type: 'image',
 
-</script>
+tLoading: 'Loading image #%curr%...',
+mainClass: 'mfp-img-mobile',
+gallery: {
+  enabled: true,
+  navigateByImgClick: true,
+  preload: [0,1] // Will preload 0 - before current, and 1 after the current image
+},
+image: {
+  tError: '<a href="%url%">The image #%curr%</a> could not be loaded.',
+  titleSrc: function(item) {
+    return item.el.attr('title') + '<small>by Pablo Walloschke</small>';
+  }
+}
+});
+});
 
-<div class="container-flex inline-flex">
+</script> -->
+
+
+<div class="col" id="portfolio">
   <div class="row">
-    <div class="col" style="width:33vw;">
-      <?php
-      foreach ($files1 as $row) {
-        ?>
-        <a href="high-res/<?php echo $row ?>" title="<?php echo $row ?>"><img src="high-res/<?php echo $row ?>" id="img-fluid"></a>
-      <?php
-      }
-      ?>
-<div class="col">
-  <div class="popup-gallery">
 
 <?php
 
 
+foreach ($files as $row) {
+  ?>
+  <!-- <a href="high-res/<?php echo $row ?>" title="<?php echo $row ?>"><img src="high-res/<?php echo $row ?>" id="img-fluid" style="max-height:100vh;"></a> -->
+  <figure class="figure col-md-3">
+    <a class="thumbnail gallery" href="high-res/<?php echo $row;?>"><img src="high-res/<?php echo $row;?>" class="figure-img img-fluid animated fadeIn" data-caption="Giganotosaurus Carolinii says good morning breakfast" /></a>
+    <figcaption class="figure-caption"><?php echo pathinfo($row, PATHINFO_FILENAME); ?></figcaption>
+  </figure>
 
-
-
+<?php
+}
 ?>
+
 </div>
 </div>
 
 
 </div>
 </section>
-<a id="portfolio">
 
-</a>
 <!-- portfolio section end -->
 
             </div>
           </div>
-          </body>
-        </html>
+          <script src="//code.jquery.com/jquery-latest.js"></script>
+          	<script src="//cdn.jsdelivr.net/npm/featherlight@1.7.14/release/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+          	<script src="//cdn.jsdelivr.net/npm/featherlight@1.7.14/release/featherlight.gallery.min.js" type="text/javascript" charset="utf-8"></script>
+        </body>
+  </html>

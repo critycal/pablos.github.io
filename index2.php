@@ -1,17 +1,34 @@
 
 <?php
-$imgs = "high-res";
-$files1 = scandir($imgs);
+$dir = "high-res";
+$files1 = scandir($dir);
 
 print_r($files1);
 //
 // ini_set('display_errors', 1);
 // ini_set('display_startup_errors', 1);
 // error_reporting(E_ALL);
+$i = 0;
 
+function scan_dir($dir) {
+    $ignored = array('.', '..', '.svn', '.htaccess');
 
+    $files = array();
+    foreach (scandir($dir) as $file) {
+        if (in_array($file, $ignored)) continue;
+        $files[$file] = filemtime($dir . '/' . $file);
+    }
+
+    arsort($files);
+    $files = array_keys($files);
+
+    return ($files) ? $files : false;
+}
+var_dump($files);
 foreach ($files1 as $row) {
+  $i++;
   ?>
+
   <a href="high-res/<?php echo $row ?>" title="<?php echo $row ?>"><img src="high-res/<?php echo $row ?>" id="img-fluid"></a>
 <?php
 }
