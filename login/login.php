@@ -30,7 +30,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>PHP Login Script Without Using Database</title>
+<title>Fotos Login</title>
 <link href="./css/style.css" rel="stylesheet">
 </head>
 <body>
