@@ -198,7 +198,7 @@ img {
           <div class="cosas">
             <img src="img/firma.png" style="height:200px"></img><br>
           <a href="#portfolio">GALERIA</a><br>
-          <a href="https://www.instagram.com/pwalloschke/">CONTACTO</a>
+          <a href="https://www.instagram.com/pwallos/">CONTACTO</a>
         </div>
       </div>
     </div>
