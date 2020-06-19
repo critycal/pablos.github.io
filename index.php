@@ -1,4 +1,7 @@
+<?php
+include "top-cache.php";
 
+?>
 <?php
 $files = "";
 $dir = "high-res";
@@ -103,13 +106,7 @@ $files = scan_dir($dir);
   <body>
 
   <style>
-  .cosas {
-    /* position the div in center */
-position: absolute;
-top: 50%;
-left: 50%;
-transform: translate(-50%, -50%);
-  }
+
   #grid {
       display: inline-block;
       width: 200px;
@@ -162,6 +159,60 @@ img {
     background-color: rgba(255, 255, 255, .9);
     padding: 0 1rem;
 }
+
+.cosas {
+  /* position the div in center */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin-top: 50vh;
+  /* filter:blur(5px)!important; */
+  opacity: 0%;
+
+
+  animation: unblur 1s forwards;
+}
+
+.cosas {
+     font-weight: strong;
+     font-size: 28px;
+ -webkit-animation-delay: 0.7s;
+  -moz-animation-delay: 0.7s;
+  animation-delay: 0.7s;
+}
+
+@-webkit-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+@-moz-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+@keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+
+.cosas {
+  opacity:0;
+  -webkit-animation:fadeIn ease-in 1;
+  -moz-animation:fadeIn ease-in 1;
+  animation:fadeIn ease-in 1;
+
+  -webkit-animation-fill-mode:forwards;
+  -moz-animation-fill-mode:forwards;
+  animation-fill-mode:forwards;
+
+  -webkit-animation-duration:1s;
+  -moz-animation-duration:1s;
+  animation-duration:1s;
+}
+@keyframes unblur {
+  from {
+    opacity: 0%;
+  }
+  to {
+    /* color:black; */
+    opacity: 100%!important;
+  }
+  }
+.container-class {
+  /* filter:blur(1.1px); */
+
+}
   </style>
 <script>
 
@@ -196,7 +247,7 @@ img {
       <div class="row">
         <div class="col">
           <div class="cosas">
-            <img src="img/firma.png" style="height:200px"></img><br>
+            <img src="/img/firma.png" style="height:200px"></img><br>
           <a href="#portfolio">GALERIA</a><br>
           <a href="https://www.instagram.com/pwallos/">CONTACTO</a>
         </div>
@@ -252,7 +303,7 @@ foreach ($files as $row) {
   ?>
   <!-- <a href="high-res/<?php echo $row ?>" title="<?php echo $row ?>"><img src="high-res/<?php echo $row ?>" id="img-fluid" style="max-height:100vh;"></a> -->
   <figure class="figure col-md-3">
-    <a class="thumbnail gallery" href="high-res/<?php echo $row;?>"><img src="high-res/<?php echo $row;?>" class="figure-img img-fluid animated fadeIn" data-caption="Giganotosaurus Carolinii says good morning breakfast" /></a>
+    <a class="thumbnail gallery" href="high-res/<?php echo $row;?>"><img src="medium-res/<?php echo $row;?>" class="figure-img img-fluid animated fadeIn" data-caption="Giganotosaurus Carolinii says good morning breakfast" /></a>
     <figcaption class="figure-caption"><?php echo pathinfo($row, PATHINFO_FILENAME); ?></figcaption>
   </figure>
 
@@ -276,3 +327,4 @@ foreach ($files as $row) {
           	<script src="//cdn.jsdelivr.net/npm/featherlight@1.7.14/release/featherlight.gallery.min.js" type="text/javascript" charset="utf-8"></script>
         </body>
   </html>
+  <?php include "bottom-cache.php" ?>

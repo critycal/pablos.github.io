@@ -1,0 +1,430 @@
+
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+
+  <head>
+    <meta charset="utf-8">
+    <title>Pablo Walloschke - Gallery</title>
+    <link rel="apple-touch-icon" sizes="57x57" href="apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <!-- <script>document.cookie='resolution='+Math.max(screen.width,screen.height)+("devicePixelRatio" in window ? ","+devicePixelRatio : ",1")+'; path=/';</script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/picturefill/3.0.3/picturefill.min.js"></script>
+  <script>
+    // Picture element HTML5 shiv
+    document.createElement( "picture" );
+  </script>
+  <script src="picturefill.js" async></script>
+
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-162752197-1"></script>
+  <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-162752197-1');
+  </script>
+    <style="css" src="css/style.css"></style>
+    <!-- Magnific Popup core CSS file -->
+    <link rel="stylesheet" href="magnific-popup/magnific-popup.css">
+
+    <!-- jQuery 1.7.2+ or Zepto.js 1.0+ -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+    <!-- Magnific Popup core JS file -->
+    <script src="magnific-popup/jquery.magnific-popup.js"></script>
+
+
+
+
+
+      <!-- Stylesheets -->
+      <link rel="stylesheet" href="css/bootstrap.min.css"/>
+      <link rel="stylesheet" href="css/font-awesome.min.css"/>
+      <link rel="stylesheet" href="css/magnific-popup.css"/>
+      <link rel="stylesheet" href="css/style.css"/>
+      <link href="https://fonts.googleapis.com/css2?family=Jost:wght@600&display=swap" rel="stylesheet">
+      <link href="//cdn.jsdelivr.net/npm/featherlight@1.7.14/release/featherlight.min.css" type="text/css" rel="stylesheet" />
+      <link href="//cdn.jsdelivr.net/npm/featherlight@1.7.14/release/featherlight.gallery.min.css" type="text/css" rel="stylesheet" />
+      <script src="//cdnjs.cloudflare.com/ajax/libs/detect_swipe/2.1.1/jquery.detect_swipe.min.js"></script>
+
+  </head>
+  <body>
+
+  <style>
+
+  #grid {
+      display: inline-block;
+      width: 200px;
+      height: 200px;
+      margin: 5px;
+      background-position: center center;
+      background-size: cover;
+  }
+
+#img-fluid {
+  object-fit: cover;
+  max-width: 32vw;
+  max-height: 32vw;
+
+  overflow: hidden;
+  width: 32vw;
+  height: 32vw;
+}
+body  .row {
+    margin-left: 0!important;
+    margin-right: 0!important;
+
+
+}
+body {
+  font-family: 'Jost', sans-serif;
+}
+  /* ellipse(100% 80% at 37% 19%) */
+  /* .square {
+    width: 100%;
+    padding-bottom: 100%;
+    background-size: cover;
+    background-position: center;
+} */
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+.mfp-content {
+    width:500px;
+    height:400px;
+ }
+ .featherlight .featherlight-content .caption {
+    font-size: 90%;
+    color: #868e96;
+    display: block;
+    position: absolute;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, .9);
+    padding: 0 1rem;
+}
+
+.cosas {
+  /* position the div in center */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin-top: 50vh;
+  /* filter:blur(5px)!important; */
+  opacity: 0%;
+
+
+  animation: unblur 1s forwards;
+}
+
+.cosas {
+     font-weight: strong;
+     font-size: 28px;
+ -webkit-animation-delay: 0.7s;
+  -moz-animation-delay: 0.7s;
+  animation-delay: 0.7s;
+}
+
+@-webkit-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+@-moz-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+@keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+
+.cosas {
+  opacity:0;
+  -webkit-animation:fadeIn ease-in 1;
+  -moz-animation:fadeIn ease-in 1;
+  animation:fadeIn ease-in 1;
+
+  -webkit-animation-fill-mode:forwards;
+  -moz-animation-fill-mode:forwards;
+  animation-fill-mode:forwards;
+
+  -webkit-animation-duration:1s;
+  -moz-animation-duration:1s;
+  animation-duration:1s;
+}
+@keyframes unblur {
+  from {
+    opacity: 0%;
+  }
+  to {
+    /* color:black; */
+    opacity: 100%!important;
+  }
+  }
+.container-class {
+  /* filter:blur(1.1px); */
+
+}
+  </style>
+<script>
+
+  $(document).ready(function() {
+    $(".gallery").featherlightGallery({
+      gallery: {
+        fadeIn: 300,
+        fadeOut: 300
+      },
+      openSpeed: 300,
+      closeSpeed: 300
+    });
+  });
+
+  $.featherlightGallery.prototype.afterContent = function() {
+          /*var caption = this.$currentTarget.data('caption');*/
+      var caption = this.$currentTarget.parent().find($('.figure-caption')).html();
+      this.$instance.find(".caption").remove();
+      $('<span class="caption">').text(caption).appendTo(this.$instance.find('.featherlight-content'));
+  };
+
+</script>
+<section>
+
+
+
+<picture>
+  <!-- <source srcset="high-res/Alba.jpg" media -->
+
+</picture>
+    <div class="container-class" style="height:100vh">
+      <div class="row">
+        <div class="col">
+          <div class="cosas">
+            <img src="/img/firma.png" style="height:200px"></img><br>
+          <a href="#portfolio">GALERIA</a><br>
+          <a href="https://www.instagram.com/pwallos/">CONTACTO</a>
+        </div>
+      </div>
+    </div>
+  </div>
+    <hr>
+
+        </div>
+        <div class="col" style="width:25vw;">
+          <div>
+      </div>
+
+</section>
+      <section class="portfolio-section">
+
+
+<!--
+<script>
+$(document).ready(function() {
+$('body').css("height",$( window ).height());
+$('body').css("overflow","hidden");
+$('.popup-gallery').magnificPopup({
+delegate: 'a',
+type: 'image',
+
+tLoading: 'Loading image #%curr%...',
+mainClass: 'mfp-img-mobile',
+gallery: {
+  enabled: true,
+  navigateByImgClick: true,
+  preload: [0,1] // Will preload 0 - before current, and 1 after the current image
+},
+image: {
+  tError: '<a href="%url%">The image #%curr%</a> could not be loaded.',
+  titleSrc: function(item) {
+    return item.el.attr('title') + '<small>by Pablo Walloschke</small>';
+  }
+}
+});
+});
+
+</script> -->
+
+
+<div class="col" id="portfolio">
+  <div class="row">
+
+  <!-- <a href="high-res/Alba.jpg" title="Alba.jpg"><img src="high-res/Alba.jpg" id="img-fluid" style="max-height:100vh;"></a> -->
+  <figure class="figure col-md-3">
+    <a class="thumbnail gallery" href="high-res/Alba.jpg"><img src="medium-res/Alba.jpg" class="figure-img img-fluid animated fadeIn" data-caption="Giganotosaurus Carolinii says good morning breakfast" /></a>
+    <figcaption class="figure-caption">Alba</figcaption>
+  </figure>
+
+  <!-- <a href="high-res/Laura4.jpg" title="Laura4.jpg"><img src="high-res/Laura4.jpg" id="img-fluid" style="max-height:100vh;"></a> -->
+  <figure class="figure col-md-3">
+    <a class="thumbnail gallery" href="high-res/Laura4.jpg"><img src="medium-res/Laura4.jpg" class="figure-img img-fluid animated fadeIn" data-caption="Giganotosaurus Carolinii says good morning breakfast" /></a>
+    <figcaption class="figure-caption">Laura4</figcaption>
+  </figure>
+
+  <!-- <a href="high-res/Paulaserie3.jpg" title="Paulaserie3.jpg"><img src="high-res/Paulaserie3.jpg" id="img-fluid" style="max-height:100vh;"></a> -->
+  <figure class="figure col-md-3">
+    <a class="thumbnail gallery" href="high-res/Paulaserie3.jpg"><img src="medium-res/Paulaserie3.jpg" class="figure-img img-fluid animated fadeIn" data-caption="Giganotosaurus Carolinii says good morning breakfast" /></a>
+    <figcaption class="figure-caption">Paulaserie3</figcaption>
+  </figure>
+
+  <!-- <a href="high-res/Paulaserie1.jpg" title="Paulaserie1.jpg"><img src="high-res/Paulaserie1.jpg" id="img-fluid" style="max-height:100vh;"></a> -->
+  <figure class="figure col-md-3">
+    <a class="thumbnail gallery" href="high-res/Paulaserie1.jpg"><img src="medium-res/Paulaserie1.jpg" class="figure-img img-fluid animated fadeIn" data-caption="Giganotosaurus Carolinii says good morning breakfast" /></a>
+    <figcaption class="figure-caption">Paulaserie1</figcaption>
+  </figure>
+
+  <!-- <a href="high-res/Ninadesnuda.jpg" title="Ninadesnuda.jpg"><img src="high-res/Ninadesnuda.jpg" id="img-fluid" style="max-height:100vh;"></a> -->
+  <figure class="figure col-md-3">
+    <a class="thumbnail gallery" href="high-res/Ninadesnuda.jpg"><img src="medium-res/Ninadesnuda.jpg" class="figure-img img-fluid animated fadeIn" data-caption="Giganotosaurus Carolinii says good morning breakfast" /></a>
+    <figcaption class="figure-caption">Ninadesnuda</figcaption>
+  </figure>
+
+  <!-- <a href="high-res/Nina.jpg" title="Nina.jpg"><img src="high-res/Nina.jpg" id="img-fluid" style="max-height:100vh;"></a> -->
+  <figure class="figure col-md-3">
+    <a class="thumbnail gallery" href="high-res/Nina.jpg"><img src="medium-res/Nina.jpg" class="figure-img img-fluid animated fadeIn" data-caption="Giganotosaurus Carolinii says good morning breakfast" /></a>
+    <figcaption class="figure-caption">Nina</figcaption>
+  </figure>
+
+  <!-- <a href="high-res/Marina.jpg" title="Marina.jpg"><img src="high-res/Marina.jpg" id="img-fluid" style="max-height:100vh;"></a> -->
+  <figure class="figure col-md-3">
+    <a class="thumbnail gallery" href="high-res/Marina.jpg"><img src="medium-res/Marina.jpg" class="figure-img img-fluid animated fadeIn" data-caption="Giganotosaurus Carolinii says good morning breakfast" /></a>
+    <figcaption class="figure-caption">Marina</figcaption>
+  </figure>
+
+  <!-- <a href="high-res/Marina,ciudad.jpg" title="Marina,ciudad.jpg"><img src="high-res/Marina,ciudad.jpg" id="img-fluid" style="max-height:100vh;"></a> -->
+  <figure class="figure col-md-3">
+    <a class="thumbnail gallery" href="high-res/Marina,ciudad.jpg"><img src="medium-res/Marina,ciudad.jpg" class="figure-img img-fluid animated fadeIn" data-caption="Giganotosaurus Carolinii says good morning breakfast" /></a>
+    <figcaption class="figure-caption">Marina,ciudad</figcaption>
+  </figure>
+
+  <!-- <a href="high-res/Marciano.jpg" title="Marciano.jpg"><img src="high-res/Marciano.jpg" id="img-fluid" style="max-height:100vh;"></a> -->
+  <figure class="figure col-md-3">
+    <a class="thumbnail gallery" href="high-res/Marciano.jpg"><img src="medium-res/Marciano.jpg" class="figure-img img-fluid animated fadeIn" data-caption="Giganotosaurus Carolinii says good morning breakfast" /></a>
+    <figcaption class="figure-caption">Marciano</figcaption>
+  </figure>
+
+  <!-- <a href="high-res/Maite.jpg" title="Maite.jpg"><img src="high-res/Maite.jpg" id="img-fluid" style="max-height:100vh;"></a> -->
+  <figure class="figure col-md-3">
+    <a class="thumbnail gallery" href="high-res/Maite.jpg"><img src="medium-res/Maite.jpg" class="figure-img img-fluid animated fadeIn" data-caption="Giganotosaurus Carolinii says good morning breakfast" /></a>
+    <figcaption class="figure-caption">Maite</figcaption>
+  </figure>
+
+  <!-- <a href="high-res/Luzia.jpg" title="Luzia.jpg"><img src="high-res/Luzia.jpg" id="img-fluid" style="max-height:100vh;"></a> -->
+  <figure class="figure col-md-3">
+    <a class="thumbnail gallery" href="high-res/Luzia.jpg"><img src="medium-res/Luzia.jpg" class="figure-img img-fluid animated fadeIn" data-caption="Giganotosaurus Carolinii says good morning breakfast" /></a>
+    <figcaption class="figure-caption">Luzia</figcaption>
+  </figure>
+
+  <!-- <a href="high-res/Laura5.jpg" title="Laura5.jpg"><img src="high-res/Laura5.jpg" id="img-fluid" style="max-height:100vh;"></a> -->
+  <figure class="figure col-md-3">
+    <a class="thumbnail gallery" href="high-res/Laura5.jpg"><img src="medium-res/Laura5.jpg" class="figure-img img-fluid animated fadeIn" data-caption="Giganotosaurus Carolinii says good morning breakfast" /></a>
+    <figcaption class="figure-caption">Laura5</figcaption>
+  </figure>
+
+  <!-- <a href="high-res/Laura3.jpg" title="Laura3.jpg"><img src="high-res/Laura3.jpg" id="img-fluid" style="max-height:100vh;"></a> -->
+  <figure class="figure col-md-3">
+    <a class="thumbnail gallery" href="high-res/Laura3.jpg"><img src="medium-res/Laura3.jpg" class="figure-img img-fluid animated fadeIn" data-caption="Giganotosaurus Carolinii says good morning breakfast" /></a>
+    <figcaption class="figure-caption">Laura3</figcaption>
+  </figure>
+
+  <!-- <a href="high-res/Autorretratoabrazo.jpg" title="Autorretratoabrazo.jpg"><img src="high-res/Autorretratoabrazo.jpg" id="img-fluid" style="max-height:100vh;"></a> -->
+  <figure class="figure col-md-3">
+    <a class="thumbnail gallery" href="high-res/Autorretratoabrazo.jpg"><img src="medium-res/Autorretratoabrazo.jpg" class="figure-img img-fluid animated fadeIn" data-caption="Giganotosaurus Carolinii says good morning breakfast" /></a>
+    <figcaption class="figure-caption">Autorretratoabrazo</figcaption>
+  </figure>
+
+  <!-- <a href="high-res/Laura2.jpg" title="Laura2.jpg"><img src="high-res/Laura2.jpg" id="img-fluid" style="max-height:100vh;"></a> -->
+  <figure class="figure col-md-3">
+    <a class="thumbnail gallery" href="high-res/Laura2.jpg"><img src="medium-res/Laura2.jpg" class="figure-img img-fluid animated fadeIn" data-caption="Giganotosaurus Carolinii says good morning breakfast" /></a>
+    <figcaption class="figure-caption">Laura2</figcaption>
+  </figure>
+
+  <!-- <a href="high-res/Laura1.jpg" title="Laura1.jpg"><img src="high-res/Laura1.jpg" id="img-fluid" style="max-height:100vh;"></a> -->
+  <figure class="figure col-md-3">
+    <a class="thumbnail gallery" href="high-res/Laura1.jpg"><img src="medium-res/Laura1.jpg" class="figure-img img-fluid animated fadeIn" data-caption="Giganotosaurus Carolinii says good morning breakfast" /></a>
+    <figcaption class="figure-caption">Laura1</figcaption>
+  </figure>
+
+  <!-- <a href="high-res/Gordo.jpg" title="Gordo.jpg"><img src="high-res/Gordo.jpg" id="img-fluid" style="max-height:100vh;"></a> -->
+  <figure class="figure col-md-3">
+    <a class="thumbnail gallery" href="high-res/Gordo.jpg"><img src="medium-res/Gordo.jpg" class="figure-img img-fluid animated fadeIn" data-caption="Giganotosaurus Carolinii says good morning breakfast" /></a>
+    <figcaption class="figure-caption">Gordo</figcaption>
+  </figure>
+
+  <!-- <a href="high-res/Gordaposando.jpg" title="Gordaposando.jpg"><img src="high-res/Gordaposando.jpg" id="img-fluid" style="max-height:100vh;"></a> -->
+  <figure class="figure col-md-3">
+    <a class="thumbnail gallery" href="high-res/Gordaposando.jpg"><img src="medium-res/Gordaposando.jpg" class="figure-img img-fluid animated fadeIn" data-caption="Giganotosaurus Carolinii says good morning breakfast" /></a>
+    <figcaption class="figure-caption">Gordaposando</figcaption>
+  </figure>
+
+  <!-- <a href="high-res/ClotihildevonDerp.jpg" title="ClotihildevonDerp.jpg"><img src="high-res/ClotihildevonDerp.jpg" id="img-fluid" style="max-height:100vh;"></a> -->
+  <figure class="figure col-md-3">
+    <a class="thumbnail gallery" href="high-res/ClotihildevonDerp.jpg"><img src="medium-res/ClotihildevonDerp.jpg" class="figure-img img-fluid animated fadeIn" data-caption="Giganotosaurus Carolinii says good morning breakfast" /></a>
+    <figcaption class="figure-caption">ClotihildevonDerp</figcaption>
+  </figure>
+
+  <!-- <a href="high-res/Autorretratoserie4.jpg" title="Autorretratoserie4.jpg"><img src="high-res/Autorretratoserie4.jpg" id="img-fluid" style="max-height:100vh;"></a> -->
+  <figure class="figure col-md-3">
+    <a class="thumbnail gallery" href="high-res/Autorretratoserie4.jpg"><img src="medium-res/Autorretratoserie4.jpg" class="figure-img img-fluid animated fadeIn" data-caption="Giganotosaurus Carolinii says good morning breakfast" /></a>
+    <figcaption class="figure-caption">Autorretratoserie4</figcaption>
+  </figure>
+
+  <!-- <a href="high-res/Autorretratoserie2.jpg" title="Autorretratoserie2.jpg"><img src="high-res/Autorretratoserie2.jpg" id="img-fluid" style="max-height:100vh;"></a> -->
+  <figure class="figure col-md-3">
+    <a class="thumbnail gallery" href="high-res/Autorretratoserie2.jpg"><img src="medium-res/Autorretratoserie2.jpg" class="figure-img img-fluid animated fadeIn" data-caption="Giganotosaurus Carolinii says good morning breakfast" /></a>
+    <figcaption class="figure-caption">Autorretratoserie2</figcaption>
+  </figure>
+
+  <!-- <a href="high-res/AutorretratoconT.jpg" title="AutorretratoconT.jpg"><img src="high-res/AutorretratoconT.jpg" id="img-fluid" style="max-height:100vh;"></a> -->
+  <figure class="figure col-md-3">
+    <a class="thumbnail gallery" href="high-res/AutorretratoconT.jpg"><img src="medium-res/AutorretratoconT.jpg" class="figure-img img-fluid animated fadeIn" data-caption="Giganotosaurus Carolinii says good morning breakfast" /></a>
+    <figcaption class="figure-caption">AutorretratoconT</figcaption>
+  </figure>
+
+  <!-- <a href="high-res/Autorretratoamarillo.jpg" title="Autorretratoamarillo.jpg"><img src="high-res/Autorretratoamarillo.jpg" id="img-fluid" style="max-height:100vh;"></a> -->
+  <figure class="figure col-md-3">
+    <a class="thumbnail gallery" href="high-res/Autorretratoamarillo.jpg"><img src="medium-res/Autorretratoamarillo.jpg" class="figure-img img-fluid animated fadeIn" data-caption="Giganotosaurus Carolinii says good morning breakfast" /></a>
+    <figcaption class="figure-caption">Autorretratoamarillo</figcaption>
+  </figure>
+
+  <!-- <a href="high-res/Autorretratoabsenta.jpg" title="Autorretratoabsenta.jpg"><img src="high-res/Autorretratoabsenta.jpg" id="img-fluid" style="max-height:100vh;"></a> -->
+  <figure class="figure col-md-3">
+    <a class="thumbnail gallery" href="high-res/Autorretratoabsenta.jpg"><img src="medium-res/Autorretratoabsenta.jpg" class="figure-img img-fluid animated fadeIn" data-caption="Giganotosaurus Carolinii says good morning breakfast" /></a>
+    <figcaption class="figure-caption">Autorretratoabsenta</figcaption>
+  </figure>
+
+  <!-- <a href="high-res/Vendimia.jpg" title="Vendimia.jpg"><img src="high-res/Vendimia.jpg" id="img-fluid" style="max-height:100vh;"></a> -->
+  <figure class="figure col-md-3">
+    <a class="thumbnail gallery" href="high-res/Vendimia.jpg"><img src="medium-res/Vendimia.jpg" class="figure-img img-fluid animated fadeIn" data-caption="Giganotosaurus Carolinii says good morning breakfast" /></a>
+    <figcaption class="figure-caption">Vendimia</figcaption>
+  </figure>
+
+
+</div>
+</div>
+
+
+</div>
+</section>
+
+<!-- portfolio section end -->
+
+            </div>
+          </div>
+          <script src="//code.jquery.com/jquery-latest.js"></script>
+          	<script src="//cdn.jsdelivr.net/npm/featherlight@1.7.14/release/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+          	<script src="//cdn.jsdelivr.net/npm/featherlight@1.7.14/release/featherlight.gallery.min.js" type="text/javascript" charset="utf-8"></script>
+        </body>
+  </html>
+  
+
