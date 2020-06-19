@@ -303,7 +303,7 @@ foreach ($files as $row) {
   ?>
   <!-- <a href="high-res/<?php echo $row ?>" title="<?php echo $row ?>"><img src="high-res/<?php echo $row ?>" id="img-fluid" style="max-height:100vh;"></a> -->
   <figure class="figure col-md-3">
-    <a class="thumbnail gallery" href="high-res/<?php echo $row;?>"><img src="medium-res/<?php echo $row;?>" class="figure-img img-fluid animated fadeIn" data-caption="Giganotosaurus Carolinii says good morning breakfast" /></a>
+    <a class="thumbnail gallery" href="high-res/<?php echo $row;?>"><img src="high-res/<?php echo $row;?>" class="figure-img img-fluid animated fadeIn" data-caption="Giganotosaurus Carolinii says good morning breakfast" /></a>
     <figcaption class="figure-caption"><?php echo pathinfo($row, PATHINFO_FILENAME); ?></figcaption>
   </figure>
 
